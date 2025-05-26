@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare - Acceso al Portal</title>
+    <link rel="stylesheet" href="css\style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container main-page">
+        <div class="header-branding">
+            <img src="imagenes\logo.jpg" alt="VetCare Logo" class="vetcare-logo">
+            <h1>VetCare</h1>
+            <p>Tu clínica veterinaria de confianza</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showSection('login-section')">Iniciar Sesión</button>
+            <button class="tab-button" onclick="showSection('register-section')">Crear Cuenta</button>
+        </div>
+
+        <div id="message-area" class="message-area"></div>
+
+        <div id="login-section" class="form-section active">
+            <h2>Accede a tu cuenta</h2>
+            <div class="input-group">
+                <label for="login-email">Correo Electrónico:</label>
+                <input type="email" id="login-email" placeholder="tu@correo.com" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password">Contraseña:</label>
+                <input type="password" id="login-password" placeholder="••••••••" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('login-password')">👁️</span>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="login-remember">
+                <label for="login-remember">Recordarme</label>
+            </div>
+            <button id="login-button">Iniciar Sesión</button>
+            <a href="#" class="forgot-password" onclick="showRecoverySection()">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <div id="register-section" class="form-section">
+            <h2>Crea una nueva cuenta</h2>
+            <div class="input-group">
+                <label for="register-email">Correo Electrónico:</label>
+                <input type="email" id="register-email" placeholder="tu@correo.com" required>
+            </div>
+            <div class="input-group">
+                <label for="register-password">Contraseña:</label>
+                <input type="password" id="register-password" placeholder="••••••••" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('register-password')">👁️</span>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="confirm-password" placeholder="••••••••" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('confirm-password')">👁️</span>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="register-remember">
+                <label for="register-remember">Recordarme</label>
+            </div>
+            <button id="register-button">Crear Cuenta</button>
+        </div>
+
+        <div id="recovery-overlay" class="modal-overlay">
+            <div class="modal-content">
+                <h2>Recuperar Contraseña</h2>
+                <div id="recovery-step1">
+                    <p>Introduce tu correo electrónico para iniciar la recuperación.</p>
+                    <div class="input-group">
+                        <label for="recovery-email">Correo Electrónico:</label>
+                        <input type="email" id="recovery-email" required>
+                    </div>
+                    <button id="send-code-button">Enviar Código de Recuperación</button>
+                </div>
+                <div id="recovery-step2" style="display: none;">
+                    <p>Se ha enviado un código a su correo electrónico. Por favor, revíselo.</p>
+                    <div class="input-group">
+                        <label for="recovery-code">Ingrese Código:</label>
+                        <input type="text" id="recovery-code" required>
+                    </div>
+                    <button id="verify-code-button">Verificar Código</button>
+                </div>
+                <div id="recovery-step3" style="display: none;">
+                    <p>Crea tu nueva contraseña segura.</p>
+                    <div class="input-group">
+                        <label for="new-password">Nueva Contraseña:</label>
+                        <input type="password" id="new-password" required>
+                        <span class="password-toggle" onclick="togglePasswordVisibility('new-password')">👁️</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm-new-password">Confirmar Nueva Contraseña:</label>
+                        <input type="password" id="confirm-new-password" required>
+                        <span class="password-toggle" onclick="togglePasswordVisibility('confirm-new-password')">👁️</span>
+                    </div>
+                    <button id="reset-password-button">Restablecer Contraseña</button>
+                </div>
+                <button class="close-modal" onclick="closeRecoverySection()">X</button>
+                <div id="recovery-message" class="message-area"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js\script.js"></script>
+</body>
+</html>

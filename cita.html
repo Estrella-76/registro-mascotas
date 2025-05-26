@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCare - Agendar Cita</title>
+    <link rel="stylesheet" href="css\style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container main-page">
+        <div class="header-branding">
+            <img src="imagenes\logo.jpg" alt="VetCare Logo" class="vetcare-logo">
+            <h1>VetCare</h1>
+            <p>Agendar Cita Médica</p>
+        </div>
+        
+        <form id="appointment-form">
+            <h2>Detalles de la Cita</h2>
+            <div class="input-group">
+                <label for="owner-name">Nombre del Dueño:</label>
+                <input type="text" id="owner-name" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="input-group">
+                <label for="pet-name">Nombre de la Mascota:</label>
+                <input type="text" id="pet-name" placeholder="Nombre de tu mascota" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="input-group half-width">
+                    <label for="pet-gender">Sexo de la Mascota:</label>
+                    <select id="pet-gender" required>
+                        <option value="">Selecciona</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                        <option value="Desconocido">Desconocido</option>
+                    </select>
+                </div>
+                <div class="input-group half-width">
+                    <label for="pet-breed">Raza de la Mascota:</label>
+                    <input type="text" id="pet-breed" list="breeds" placeholder="Selecciona o escribe la raza" required>
+                    <datalist id="breeds">
+                        <option value="Labrador Retriever">
+                        <option value="Pastor Alemán">
+                        <option value="Golden Retriever">
+                        <option value="Bulldog Francés">
+                        <option value="Caniche">
+                        <option value="Chihuahua">
+                        <option value="Pug">
+                        <option value="Siamés">
+                        <option value="Persa">
+                        <option value="Maine Coon">
+                        <option value="Bengalí">
+                        <option value="Mestizo (Perro)">
+                        <option value="Mestizo (Gato)">
+                        <option value="Sin Raza Definida">
+                        </datalist>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="veterinarian">Veterinario/a:</label>
+                <select id="veterinarian" required>
+                    <option value="">Selecciona un veterinario</option>
+                    <option value="Dra. Ana López (Especialista Canina)">Dra. Ana López (Especialista Canina)</option>
+                    <option value="Dr. Carlos Gómez (Cirugía y Ortopedia)">Dr. Carlos Gómez (Cirugía y Ortopedia)</option>
+                    <option value="Dra. María Fernández (Medicina Felina)">Dra. María Fernández (Medicina Felina)</option>
+                    <option value="Dr. Juan Pérez (Exóticos y Pequeños Animales)">Dr. Juan Pérez (Exóticos y Pequeños Animales)</option>
+                    <option value="Dra. Laura Díaz (Dermatología Veterinaria)">Dra. Laura Díaz (Dermatología Veterinaria)</option>
+                    <option value="Dr. Roberto Sánchez (Medicina Interna)">Dr. Roberto Sánchez (Medicina Interna)</option>
+                    <option value="Dra. Sofía Martínez (Vacunación y Prevención)">Dra. Sofía Martínez (Vacunación y Prevención)</option>
+                    <option value="Dr. Alejandro Castro (Urgencias Veterinarias)">Dr. Alejandro Castro (Urgencias Veterinarias)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="consult-reason">Motivo de la Consulta:</label>
+                <textarea id="consult-reason" rows="4" placeholder="Describe brevemente el motivo de la cita" required></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group half-width">
+                    <label for="appointment-date">Fecha de la Cita:</label>
+                    <input type="date" id="appointment-date" required>
+                </div>
+                <div class="input-group half-width">
+                    <label for="appointment-time">Hora de la Cita:</label>
+                    <input type="time" id="appointment-time" required>
+                </div>
+            </div>
+            
+            <button type="submit">Solicitar Cita</button>
+            <button class="logout-button" onclick="logout()">Cerrar Sesión</button> </form>
+
+        <div id="appointment-message-area" class="message-area"></div>
+
+        <div id="confirmation-modal" class="modal-overlay">
+            <div class="modal-content" id="printable-area">
+                <h2 class="modal-title">Cita Confirmada</h2>
+                <div class="modal-header-print">
+                    
+                    <h3>VetCare Clínica Veterinaria</h3>
+                    <p>¡Gracias por confiar en nosotros!</p>
+                </div>
+                <p>Estimado/a <span id="confirm-owner-name"></span>,</p>
+                <p>Se ha registrado su cita para la mascota <span id="confirm-pet-name-paragraph"></span>.</p>
+                <ul class="appointment-details-list">
+                    <li><strong>Ficha N°:</strong> <span id="confirm-ficha"></span></li>
+                    <li><strong>Fecha y Hora:</strong> <span id="confirm-datetime"></span></li>
+                    <li><strong>Veterinario/a:</strong> <span id="confirm-veterinarian-detail"></span></li>
+                    <li><strong>Motivo:</strong> <span id="confirm-reason"></span></li>
+                    <li><strong>Mascota:</strong> <span id="confirm-pet-name-detail"></span> (<span id="confirm-pet-gender"></span>, <span id="confirm-pet-breed"></span>)</li>
+                    <li><strong>Correo:</strong> <span id="confirm-email"></span></li>
+                </ul>
+                <p class="small-text">Este mensaje simula un correo de confirmación. Puede imprimir esta página para su registro.</p>
+                <div class="modal-actions">
+                    <button class="confirm-button" onclick="closeConfirmationModal()">Aceptar</button>
+                    <button class="print-button" onclick="printConfirmation()">Imprimir Factura</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js\script.js"></script>
+</body>
+</html>

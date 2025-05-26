@@ -1,0 +1,470 @@
+/* Importar fuente de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #e0f2f7, #c1e4f4); /* Fondo degradado suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    width: 100%;
+    max-width: 550px; /* Ligeramente más ancho */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Para el header-branding */
+}
+
+.header-branding {
+    margin-bottom: 25px;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 0;
+    border-radius: 10px 10px 0 0;
+    margin: -30px -40px 20px -40px; /* Extender al ancho completo del container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-branding .vetcare-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+}
+
+.header-branding h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: white;
+}
+
+.header-branding p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+
+h2 {
+    color: #0056b3;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #555;
+    border-radius: 5px 5px 0 0;
+    margin: 0 2px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
+    background-color: #f9f9f9;
+}
+
+.tab-button:hover:not(.active) {
+    color: #0056b3;
+    background-color: #f0f0f0;
+}
+
+.form-section {
+    display: none;
+    padding-top: 10px;
+}
+
+.form-section.active {
+    display: block;
+}
+
+.input-group {
+    margin-bottom: 20px; /* Más espacio entre campos */
+    text-align: left;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px; /* Más espacio entre label y input */
+    font-weight: 600;
+    color: #444;
+    font-size: 0.95em;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group input[type="time"],
+.input-group select,
+.input-group textarea {
+    width: calc(100% - 22px); /* Ajuste para padding y border */
+    padding: 12px; /* Más padding */
+    border: 1px solid #ddd;
+    border-radius: 6px; /* Bordes más suaves */
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none; /* Quitar outline por defecto */
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%; /* Ajuste para centrar verticalmente */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2em;
+    padding-left: 5px; /* Espacio para el clic */
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+    font-size: 0.95em;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.1); /* Checkbox un poco más grande */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px; /* Más padding */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 15px; /* Más margen arriba */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.message-area {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: none;
+    font-size: 0.9em;
+    opacity: 0; /* Para la animación */
+    transition: opacity 0.3s ease;
+}
+
+.message-area.visible {
+    opacity: 1;
+}
+
+.message-area.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.message-area.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Fondo más oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0; /* Para la animación de aparición */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 35px; /* Más padding */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 450px; /* Ligeramente más ancho */
+    text-align: center;
+    position: relative;
+    transform: translateY(-20px); /* Para la animación de aparición */
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h2.modal-title {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    line-height: 1.5;
+}
+
+.appointment-details-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 25px;
+    border-top: 1px dashed #eee;
+    padding-top: 20px;
+}
+
+.appointment-details-list li {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+}
+
+.appointment-details-list li strong {
+    color: #0056b3;
+}
+
+.modal-content .small-text {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 25px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #555;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px; /* Espacio entre botones */
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.confirm-button, .print-button {
+    width: auto;
+    padding: 12px 25px;
+    font-size: 16px;
+    flex-grow: 1; /* Para que los botones crezcan y llenen el espacio */
+    max-width: 180px;
+}
+
+.print-button {
+    background-color: #28a745; /* Color verde para imprimir */
+}
+
+.print-button:hover {
+    background-color: #218838;
+}
+
+.logout-button {
+    position: static; /* Cambiado de absolute a static */
+    margin-top: 25px; /* Añadido margen superior */
+    background-color: #dc3545;
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 12px 15px;
+    font-size: 16px;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilos específicos para cita.html */
+#appointment-form {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px; /* Espacio entre columnas */
+    margin-bottom: 0px; /* Ya hay margen en input-group */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.form-row .input-group {
+    flex: 1; /* Para que ocupen el mismo espacio */
+    min-width: 180px; /* Mínimo ancho para evitar que se aprieten demasiado */
+    margin-bottom: 20px;
+}
+
+/* Estilos para la impresión */
+@media print {
+    body {
+        background-color: #fff;
+        display: block;
+        min-height: auto;
+    }
+    .container {
+        box-shadow: none;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    /* Ocultar elementos no deseados en la impresión */
+    .modal-overlay:not(.visible),
+    .logout-button,
+    .tab-button,
+    #appointment-form,
+    #message-area,
+    #appointment-message-area,
+    .modal-actions button:not(.print-button),
+    .container .header-branding { /* Ocultar el branding principal en impresión */
+        display: none !important;
+    }
+
+    /* Mostrar solo el contenido a imprimir */
+    #confirmation-modal.modal-overlay {
+        position: static;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        background: none;
+        margin: 0; /* Eliminar margen para impresión */
+        padding: 0;
+    }
+    .modal-content {
+        box-shadow: none;
+        transform: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        width: auto; /* Ajustar al contenido */
+        max-width: 600px;
+        margin: 20px auto;
+    }
+    .modal-content h2.modal-title {
+        color: #333;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .modal-content .modal-header-print {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    .modal-content .modal-header-print .vetcare-logo-small {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .modal-content .modal-header-print h3 {
+        margin: 0;
+        font-size: 1.5em;
+        color: #000;
+    }
+    .modal-content .modal-header-print p {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+    .appointment-details-list {
+        border-top: none;
+        padding-top: 0;
+    }
+    .modal-actions {
+        display: none !important; /* Ocultar botones de acción en la impresión */
+    }
+    .small-text {
+        text-align: center;
+    }
+}
